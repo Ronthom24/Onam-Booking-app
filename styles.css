@@ -159,18 +159,19 @@ a{color:inherit}
   display:flex;flex-direction:column;align-items:center;
 }
 
-/* logo lockup */
-.brand{display:flex;align-items:center;gap:11px;margin-bottom:16px}
+/* church host line — the event's host comes first, matching the
+   official poster. The organising youth group appears only in the
+   footer credit. */
 .mark{width:40px;height:40px;border-radius:3px;box-shadow:0 3px 14px rgba(0,0,0,.4)}
-.brand-txt{display:flex;flex-direction:column;text-align:left;line-height:1.25}
-.brand-txt b{
-  font-family:var(--f-cond);font-weight:600;font-size:.9rem;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--green-deep);
+.host-line{
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  margin-bottom:18px;
 }
-.brand-txt i{
-  font-style:normal;font-family:var(--f-cond);font-weight:400;
-  font-size:.6rem;letter-spacing:.17em;text-transform:uppercase;
-  color:var(--maroon);
+.host-cross{width:20px;height:20px;color:var(--maroon)}
+.host-line span{
+  font-family:var(--f-cond);font-weight:600;font-size:.76rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep);
+  text-align:center;
 }
 
 .ml-title{
@@ -350,6 +351,57 @@ a{color:inherit}
   display:block;margin-top:6px;font-style:normal;
   font-family:var(--f-cond);font-weight:300;font-size:.62rem;
   letter-spacing:.15em;text-transform:uppercase;color:var(--ink-2);
+}
+
+/* ═══════════════ MAVELI ═══════════════ */
+/* ── The walking band ── */
+.maveli-band{
+  position:relative;
+  height:190px;
+  overflow:hidden;
+  background:linear-gradient(180deg,var(--cream) 0%,#f6ead2 62%,#efe0c2 100%);
+  border-top:2px solid var(--gold);
+  border-bottom:2px solid var(--gold);
+}
+.scenery{position:absolute;left:0;right:0;bottom:26px;height:120px}
+.palms{width:100%;height:100%}
+.ground{
+  position:absolute;left:0;right:0;bottom:0;height:26px;
+  background:linear-gradient(180deg,#0b3a22,#062617);
+}
+.ground::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:repeating-linear-gradient(90deg,var(--gold) 0 14px,var(--maroon) 14px 28px);
+  opacity:.75;
+}
+
+.maveli{
+  position:absolute;bottom:20px;left:0;
+  width:96px;height:126px;
+  will-change:transform;
+  filter:drop-shadow(0 6px 8px rgba(43,33,20,.28));
+}
+
+/* walk cycle — only runs while he's actually moving */
+.maveli .leg{transform-origin:60px 118px;transform-box:fill-box}
+.maveli .leg-front{transform-origin:66px 118px}
+.maveli.walking .leg-front{animation:stepA .52s ease-in-out infinite}
+.maveli.walking .leg-back{animation:stepB .52s ease-in-out infinite}
+.maveli.walking .arm-free{animation:swing .52s ease-in-out infinite}
+.maveli.walking{animation:bob .26s ease-in-out infinite}
+.maveli .umbrella{transform-origin:84px 96px;transform-box:fill-box}
+.maveli.walking .umbrella{animation:sway 1.9s ease-in-out infinite}
+
+@keyframes stepA{0%,100%{transform:rotate(17deg)}50%{transform:rotate(-17deg)}}
+@keyframes stepB{0%,100%{transform:rotate(-17deg)}50%{transform:rotate(17deg)}}
+@keyframes swing{0%,100%{transform:rotate(-11deg)}50%{transform:rotate(11deg)}}
+@keyframes sway{0%,100%{transform:rotate(-3.5deg)}50%{transform:rotate(3.5deg)}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -3px}}
+
+@media (min-width:760px){
+  .maveli-band{height:240px}
+  .maveli{width:124px;height:162px;bottom:22px}
+  .scenery{height:160px}
 }
 
 /* ═══════════════ TIMELINE ═══════════════
@@ -542,7 +594,6 @@ a{color:inherit}
   opacity:.13;color:var(--gold-hi);pointer-events:none;
 }
 .foot-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
-.mark-lg{width:52px;height:52px;margin-bottom:20px}
 .foot-title{
   font-family:var(--f-disp);font-weight:700;font-size:1.7rem;
   color:#fff;letter-spacing:-.01em;margin-bottom:10px;
@@ -550,21 +601,15 @@ a{color:inherit}
 .foot-text{font-size:.92rem;max-width:330px;margin-bottom:26px;color:rgba(251,243,228,.86)}
 /* ── Contact card: tappable phone rows ── */
 .contact-card{
-  width:100%;max-width:340px;
-  padding:16px 16px 12px;border-radius:var(--r-m);
-  background:rgba(0,0,0,.2);
-  border:1px solid rgba(230,191,106,.26);
-  margin-bottom:16px;
-}
-.fc-head{
-  font-family:var(--f-cond);font-weight:500;font-size:.72rem;
-  letter-spacing:.24em;text-transform:uppercase;
-  color:var(--gold-hi);margin-bottom:12px;
+  width:100%;max-width:400px;margin:0 auto 18px;
+  padding:6px 18px;border-radius:var(--r-m);
+  background:#fff;border:1px solid var(--cream-3);
+  box-shadow:var(--sh);
 }
 .c-row{
   display:flex;align-items:center;gap:12px;
-  padding:11px 4px;text-decoration:none;
-  border-top:1px solid rgba(230,191,106,.16);
+  padding:14px 4px;text-decoration:none;
+  border-top:1px solid var(--cream-2);
   transition:opacity .18s ease;
 }
 .c-row:first-of-type{border-top:none}
@@ -572,26 +617,26 @@ a{color:inherit}
 .c-ico{
   flex:none;width:38px;height:38px;border-radius:50%;
   display:grid;place-items:center;
-  background:rgba(230,191,106,.14);
-  border:1px solid rgba(230,191,106,.32);
-  color:var(--gold-hi);
+  background:var(--cream-2);
+  border:1px solid var(--gold-lt);
+  color:var(--maroon);
 }
 .c-ico svg{width:17px;height:17px}
 .c-txt{display:flex;flex-direction:column;text-align:left;line-height:1.35;min-width:0}
-.c-txt b{font-size:.86rem;font-weight:600;color:#fff}
+.c-txt b{font-size:.86rem;font-weight:600;color:var(--ink)}
 .c-txt i{
   font-style:normal;font-family:var(--f-cond);font-weight:400;
-  font-size:.86rem;letter-spacing:.06em;color:var(--gold-hi);
+  font-size:.86rem;letter-spacing:.06em;color:var(--maroon);
 }
 
 /* ── Instagram ── */
 .insta{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:11px 20px;border-radius:999px;margin-bottom:18px;
+  display:flex;width:fit-content;align-items:center;gap:9px;
+  padding:11px 20px;border-radius:999px;margin:0 auto 22px;
   text-decoration:none;
-  color:var(--gold-hi);
-  border:1px solid rgba(230,191,106,.4);
-  background:rgba(255,255,255,.06);
+  color:var(--maroon);
+  border:1px solid var(--gold);
+  background:var(--cream-2);
   font-family:var(--f-cond);font-weight:400;
   font-size:.8rem;letter-spacing:.12em;
   transition:background .2s ease,transform .16s ease;
@@ -601,20 +646,27 @@ a{color:inherit}
 .insta:active{transform:scale(.97)}
 
 .foot-contact{
+  width:100%;max-width:400px;margin:0 auto;
   font-size:.84rem;line-height:1.7;
-  color:rgba(251,243,228,.76);
+  color:var(--ink-2);text-align:center;
   padding:18px 22px;border-radius:var(--r-m);
-  background:rgba(0,0,0,.17);
-  border:1px solid rgba(230,191,106,.24);
+  background:#fff;border:1px solid var(--cream-3);
+  box-shadow:var(--sh);
 }
 .fc-name{
-  font-family:var(--f-cond);font-weight:500;font-size:.82rem;
+  font-family:var(--f-cond);font-weight:600;font-size:.82rem;
   letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gold-hi);margin-bottom:7px;
+  color:var(--maroon);margin-bottom:7px;
 }
-.foot-contact a{color:var(--gold-hi);text-decoration:none;border-bottom:1px solid rgba(230,191,106,.4)}
-.foot-credit{
+.foot-contact a{color:var(--maroon);text-decoration:none;border-bottom:1px solid var(--gold-lt)}
+/* small closing credit — the organising youth group, after the
+   church's own contact details have had their say */
+.org-credit{
+  display:flex;align-items:center;gap:9px;
   margin-top:24px;
+}
+.mark-sm{width:22px;height:22px;border-radius:2px;box-shadow:none}
+.foot-credit{
   font-family:var(--f-cond);font-weight:300;font-size:.67rem;
   letter-spacing:.18em;text-transform:uppercase;color:rgba(251,243,228,.55);
 }

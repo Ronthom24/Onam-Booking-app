@@ -137,6 +137,43 @@
     items.forEach(function (el) { io.observe(el); });
   }
 
+  /* ─────────────── 4. Maveli's walk ───────────────
+     Maveli crosses his band as you scroll it through view,
+     and faces the direction of travel. */
+  var maveli = document.getElementById("maveli");
+  var maveliBand = document.getElementById("maveli-band");
+
+  if (maveli && maveliBand && !reduced) {
+    var lastX = 0, ticking = false;
+
+    function walk() {
+      ticking = false;
+      var r = maveliBand.getBoundingClientRect();
+      var vh = window.innerHeight;
+      // 0 → 1 as the band travels from entering to leaving the viewport
+      var p = (vh - r.top) / (vh + r.height);
+      p = Math.max(0, Math.min(1, p));
+
+      var travel = maveliBand.clientWidth - maveli.clientWidth;
+      var x = p * travel;
+
+      maveli.style.transform = "translateX(" + x + "px) scaleX(" + (x < lastX ? -1 : 1) + ")";
+      // legs only cycle while he is actually moving
+      maveli.classList.toggle("walking", Math.abs(x - lastX) > .35);
+      lastX = x;
+    }
+
+    var stopTimer;
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(walk); }
+      clearTimeout(stopTimer);
+      stopTimer = setTimeout(function () { maveli.classList.remove("walking"); }, 140);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    walk();
+  }
+
   /* ─────────────── 7. Booking sheet ─────────────── */
   var overlay = document.getElementById("overlay");
   var sheet = document.getElementById("sheet");
