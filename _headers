@@ -1,0 +1,27 @@
+# Cache rules for Netlify / Cloudflare Pages.
+#
+# config.js holds the UPI id and backend URL. If a browser caches an old
+# copy, that visitor sees "Booking opens soon" forever even after we go
+# live — so it must always be revalidated.
+
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/config.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/script.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/styles.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Photos never change once published — cache them hard.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable

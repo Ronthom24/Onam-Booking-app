@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sangamam 2026 — Family Get-Together | Santhome Youth</title>
+<meta name="description" content="Sangamam — a family get-together by Santhome Youth at St. Thomas Orthodox Maha Edavaka, Bengaluru. Sadya, thiruvathira, games. Everyone welcome.">
+<!-- Stops Android Chrome's "auto dark theme" from algorithmically
+     re-colouring the page (it otherwise guesses at dark equivalents
+     and mangles the marigold hero into near-black). -->
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#e8b449">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Oswald:wght@300;400;500;600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-pookalam.jpg">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.className+=" js";</script>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<header class="hero">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="pookalam-stage" aria-hidden="true"><svg class="pookalam" id="pookalam" viewBox="-210 -210 420 420"></svg></div>
+  <div class="kasavu kasavu--top" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="brand reveal">
+      <svg class="mark" viewBox="0 0 100 100" role="img" aria-label="Santhome Youth">
+        <rect width="100" height="100" rx="2" fill="#262626"/>
+        <path d="M80 20H20v60" fill="none" stroke="#fff" stroke-width="7.5"/>
+        <path d="M20 80h60V33" fill="none" stroke="#fff" stroke-width="7.5"/>
+        <path d="M64 39H41v10.5h21V60H39" fill="none" stroke="#9c9c9c" stroke-width="7.5"/>
+      </svg>
+      <span class="brand-txt"><b>Santhome Youth</b><i>Connect · Grow · Serve</i></span>
+    </div>
+
+    <p class="ml-title reveal">സംഗമം 2026</p>
+
+    <h1 class="title reveal">Sangamam</h1>
+    <p class="title-sub reveal">സംഗമം · a coming together</p>
+
+    <p class="hero-line reveal">A family get-together by Santhome Youth<br>at <b>St. Thomas Orthodox Maha Edavaka</b></p>
+
+    <div class="pills reveal">
+      <span class="pill">Sun · 13 Sept 2026</span>
+      <span class="pill">From 10:30 AM</span>
+    </div>
+
+    <div class="countdown reveal" aria-label="Time remaining until Sangamam">
+      <div class="cd"><span id="cd-days">00</span><i>Days</i></div>
+      <div class="cd"><span id="cd-hours">00</span><i>Hrs</i></div>
+      <div class="cd"><span id="cd-mins">00</span><i>Min</i></div>
+      <div class="cd"><span id="cd-secs">00</span><i>Sec</i></div>
+    </div>
+
+    <div class="welcome reveal">
+      <span class="welcome-rule" aria-hidden="true"></span>
+      <p class="welcome-lead">Come one, come all</p>
+      <p class="welcome-sub">No limit on numbers — just book ahead, so we know how many to lay.</p>
+      <span class="welcome-rule" aria-hidden="true"></span>
+    </div>
+
+    <button class="btn btn-gold btn-hero reveal" data-open-booking>
+      Book Tickets
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <div class="kasavu kasavu--bottom" aria-hidden="true"></div>
+</header>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section class="section about">
+  <svg class="corner" viewBox="0 0 130 130" aria-hidden="true">
+    <g fill="currentColor">
+      <path d="M0 0C22 4 34 16 38 38 16 34 4 22 0 0Z" opacity=".9"/>
+      <path d="M0 0C30 10 48 28 58 58 28 48 10 30 0 0Z" opacity=".55"/>
+      <path d="M0 0C40 18 64 42 78 78 42 64 18 40 0 0Z" opacity=".3"/>
+      <path d="M0 0C50 26 82 58 100 100 58 82 26 50 0 0Z" opacity=".16"/>
+    </g>
+  </svg>
+
+  <p class="kicker reveal">About the day</p>
+  <h2 class="h2 reveal">One leaf,<br><span class="gold">one family.</span></h2>
+  <p class="lede reveal"><span class="dropcap">S</span>angamam is our parish coming together for Onam — a morning of games and stage events that ends around a traditional sadya served on banana leaf.</p>
+  <p class="lede reveal">Bring your family, bring your neighbours.</p>
+
+  <div class="stats reveal">
+    <div class="stat"><b>26</b><i>Sadya dishes</i></div>
+    <div class="stat"><b>15+</b><i>Programs</i></div>
+    <div class="stat"><b>Open</b><i>Give what you can</i></div>
+  </div>
+</section>
+
+<div class="kasavu-band" aria-hidden="true"></div>
+
+<!-- ══════════════ LUCKY DRAW ══════════════ -->
+<section class="section draw">
+  <div class="draw-card reveal">
+    <div class="draw-glow" aria-hidden="true"></div>
+
+    <svg class="coin" viewBox="0 0 120 120" role="img" aria-label="Gold coin">
+      <defs>
+        <radialGradient id="cg" cx="34%" cy="30%">
+          <stop offset="0%" stop-color="#fff6dc"/>
+          <stop offset="42%" stop-color="#f0cd77"/>
+          <stop offset="78%" stop-color="#c9962f"/>
+          <stop offset="100%" stop-color="#96690f"/>
+        </radialGradient>
+        <linearGradient id="cs" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fff3d0"/>
+          <stop offset="100%" stop-color="#b8871c"/>
+        </linearGradient>
+      </defs>
+      <circle cx="60" cy="60" r="56" fill="url(#cg)"/>
+      <circle cx="60" cy="60" r="56" fill="none" stroke="#8a6212" stroke-width="1.5"/>
+      <circle cx="60" cy="60" r="48" fill="none" stroke="#a87a1e" stroke-width="1.2" opacity=".7"/>
+      <!-- milled edge -->
+      <g stroke="#a87a1e" stroke-width="1.6" opacity=".55">
+        <path d="M60 4v6M60 110v6M4 60h6M110 60h6M20 20l4 4M96 96l4 4M100 20l-4 4M24 96l-4 4"/>
+      </g>
+      <!-- petal rosette, echoing the pookalam -->
+      <g fill="url(#cs)" opacity=".95">
+        <path d="M60 26c7 8 7 16 0 22-7-6-7-14 0-22z"/>
+        <path d="M60 94c-7-8-7-16 0-22 7 6 7 14 0 22z"/>
+        <path d="M26 60c8-7 16-7 22 0-6 7-14 7-22 0z"/>
+        <path d="M94 60c-8 7-16 7-22 0 6-7 14-7 22 0z"/>
+        <path d="M36 36c10 2 15 8 16 17-9-1-15-7-16-17z"/>
+        <path d="M84 84c-10-2-15-8-16-17 9 1 15 7 16 17z"/>
+        <path d="M84 36c-2 10-8 15-17 16 1-9 7-15 17-16z"/>
+        <path d="M36 84c2-10 8-15 17-16-1 9-7 15-17 16z"/>
+      </g>
+      <circle cx="60" cy="60" r="8" fill="#8a6212" opacity=".8"/>
+      <circle cx="60" cy="60" r="4" fill="#f6e0a8"/>
+    </svg>
+
+    <p class="draw-kicker">Lucky draw</p>
+    <h2 class="draw-title">Win a <span>gold coin</span></h2>
+    <p class="draw-text">
+      Every ticket you book goes into the draw automatically — no extra cost,
+      nothing more to enter. We'll draw the winner live on stage during the program.
+    </p>
+    <p class="draw-fine">Book more tickets, more chances. You must be present at the draw to claim.</p>
+  </div>
+</section>
+
+<div class="kasavu-band" aria-hidden="true"></div>
+
+<!-- ══════════════ SCHEDULE ══════════════ -->
+<section class="section schedule">
+  <p class="kicker reveal">Program schedule</p>
+  <h2 class="h2 reveal">What's happening</h2>
+
+  <ol class="timeline">
+    <li class="tl reveal"><span class="tl-time">6:30<em>AM</em></span><div class="tl-card"><span class="tl-ico">🌼</span><div><b>Pookalam</b><i>Laying the floral carpet together as the day begins</i></div></div></li>
+    <li class="tl reveal"><span class="tl-time">10:30<em>AM</em></span><div class="tl-card"><span class="tl-ico">🪢</span><div><b>Onakkalikal</b><i>Tug of war, uriyadi and games for every age</i></div></div></li>
+    <li class="tl reveal"><span class="tl-time">11:00<em>AM</em></span><div class="tl-card"><span class="tl-ico">💃</span><div><b>Stage Events</b><i>Thiruvathira, choir, skits, youth performances — and the lucky draw</i></div></div></li>
+    <li class="tl reveal"><span class="tl-time">12:30<em>PM</em></span><div class="tl-card"><span class="tl-ico">🍛</span><div><b>Onam Sadya</b><i>Full banana-leaf feast, served in sittings</i></div></div></li>
+  </ol>
+  <p class="tl-foot reveal">The main program is from 10:30 AM.</p>
+</section>
+
+<div class="kasavu-band" aria-hidden="true"></div>
+
+<!-- ══════════════ GALLERY ══════════════ -->
+<section class="section gallery">
+  <p class="kicker reveal">Last year</p>
+  <h2 class="h2 reveal">Glimpses from<br><span class="gold">Sangamam 2025</span></h2>
+  <p class="sub reveal">Moments from last year's get-together.</p>
+
+  <div class="grid">
+    <figure class="ph reveal"><img src="assets/r-sadya.jpg" alt="Volunteers serving the Onam sadya onto banana leaves at Sangamam 2025" loading="lazy" decoding="async" width="900" height="1601"><figcaption>The sadya</figcaption></figure>
+    <figure class="ph reveal"><img src="assets/r-stage.jpg" alt="Dancers performing on stage in kasavu at Sangamam 2025" loading="lazy" decoding="async" width="900" height="1601"><figcaption>On stage</figcaption></figure>
+    <figure class="ph reveal"><img src="assets/r-tugofwar.jpg" alt="Tug of war on the road outside the church at Sangamam 2025" loading="lazy" decoding="async" width="900" height="1601"><figcaption>Tug of war</figcaption></figure>
+    <figure class="ph reveal"><img src="assets/r-uriyadi.jpg" alt="The banana bunch game during Onakkalikal at Sangamam 2025" loading="lazy" decoding="async" width="900" height="1601"><figcaption>Onakkalikal</figcaption></figure>
+    <figure class="ph reveal"><img src="assets/r-littleones.jpg" alt="Children performing a dance on stage at Sangamam 2025" loading="lazy" decoding="async" width="900" height="1601"><figcaption>The little ones</figcaption></figure>
+    <figure class="ph reveal"><img src="assets/r-kids.jpg" alt="Young performers lined up on stage at Sangamam 2025" loading="lazy" decoding="async" width="900" height="1601"><figcaption>Stage events</figcaption></figure>
+  </div>
+</section>
+
+<div class="kasavu-band" aria-hidden="true"></div>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section class="section faq">
+  <p class="kicker reveal">Good to know</p>
+  <h2 class="h2 reveal">Questions</h2>
+  <div class="faq-list">
+    <details class="fq reveal">
+      <summary><span>How do I book?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>Tap <b>Book Tickets</b>, choose how many you need and what you'd like to contribute, and enter your name and mobile number. You'll then pay by UPI — scan the QR or tap through to GPay, PhonePe or any UPI app — and send us the reference number along with a screenshot of the payment. We'll give you a booking ID straight away.</p></div>
+    </details>
+
+    <details class="fq reveal">
+      <summary><span>Can I book for my whole family?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>Yes. There's no cap on numbers — use the counter in the booking panel to take as many tickets as your family needs in one booking. One payment and one booking ID cover everyone.</p></div>
+    </details>
+
+    <details class="fq reveal">
+      <summary><span>What if I lose my ticket?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>There's no printed ticket, so there's nothing to lose. Your booking sits against your name and mobile number, so just tell a Santhome Youth volunteer at the desk and we'll find you. If you'd like to check beforehand, call one of the numbers at the bottom of this page.</p></div>
+    </details>
+
+    <details class="fq reveal">
+      <summary><span>When should I come?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>The main program opens at <b>10:30 AM</b> with the games, followed by stage events at 11:00 and the sadya from 12:30.</p></div>
+    </details>
+
+    <details class="fq reveal">
+      <summary><span>How much should I contribute?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>There's no fixed amount — give whatever feels right, and it goes towards the sadya and the day's costs. If you're able to give more, it helps us cover someone who can't. Nobody is turned away over the amount.</p></div>
+    </details>
+
+    <details class="fq reveal">
+      <summary><span>How does the lucky draw work?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>Every ticket goes into the draw automatically — there's nothing extra to buy and nothing extra to fill in. Book four tickets and you have four chances. We'll draw the winner live on stage during the program, and the winner needs to be there to claim the gold coin.</p></div>
+    </details>
+
+    <details class="fq reveal">
+      <summary><span>Do children need tickets?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>Anyone eating a sadya needs a ticket, so we know how many leaves to lay. Small children sharing a plate with a parent don't need one.</p></div>
+    </details>
+
+    <details class="fq reveal">
+      <summary><span>Is the amount refundable?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>The contribution goes towards food that's ordered in advance, so we generally can't refund it. If your plans change, let us know as early as you can — call one of the numbers below and we'll do our best to help.</p></div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="kasavu kasavu--top" aria-hidden="true"></div>
+  <svg class="foot-motif" id="foot-motif" viewBox="-110 -110 220 220" aria-hidden="true"></svg>
+
+  <div class="foot-inner">
+    <svg class="mark mark-lg" viewBox="0 0 100 100" role="img" aria-label="Santhome Youth">
+      <rect width="100" height="100" rx="2" fill="#262626"/>
+      <path d="M80 20H20v60" fill="none" stroke="#fff" stroke-width="7.5"/>
+      <path d="M20 80h60V33" fill="none" stroke="#fff" stroke-width="7.5"/>
+      <path d="M64 39H41v10.5h21V60H39" fill="none" stroke="#9c9c9c" stroke-width="7.5"/>
+    </svg>
+
+    <p class="foot-text">Thank you for being part of our parish family. We can't wait to share the leaf with you.</p>
+
+    <!-- CONTACT — replace the placeholder names and numbers below -->
+    <div class="contact-card">
+      <p class="fc-head">Contact us</p>
+
+      <a class="c-row" href="tel:+910000000000">
+        <span class="c-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+        </span>
+        <span class="c-txt"><b>Dawn Koshy</b><i>+91 00000 00000</i></span>
+      </a>
+
+      <a class="c-row" href="tel:+910000000000">
+        <span class="c-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+        </span>
+        <span class="c-txt"><b>Binoy K Baby</b><i>+91 00000 00000</i></span>
+      </a>
+
+      <a class="c-row" href="tel:+910000000000">
+        <span class="c-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+        </span>
+        <span class="c-txt"><b>Bency Babu</b><i>+91 00000 00000</i></span>
+      </a>
+    </div>
+
+    <a class="insta" href="https://www.instagram.com/santhomeyouth/" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/>
+      </svg>
+      <span>@santhomeyouth</span>
+    </a>
+
+    <div class="foot-contact">
+      <p class="fc-name">St. Thomas Orthodox Maha Edavaka</p>
+      <p>51, Banasawadi Main Road, Maruthi Seva Nagar Post,<br>Bengaluru – 560033</p>
+      <p><a href="mailto:stoc.blr.east@gmail.com">stoc.blr.east@gmail.com</a></p>
+      <p><a href="https://stome.org" target="_blank" rel="noopener noreferrer">stome.org</a></p>
+    </div>
+
+    <p class="foot-credit">Sangamam 2026 · Organised by Santhome Youth</p>
+    <p class="foot-attr">Photographs from Sangamam 2025, Santhome Youth. Hero background image from Wikimedia Commons, CC BY-SA — Prathvi Acharya.</p>
+  </div>
+</footer>
+
+<!-- ══════════════ STICKY BAR ══════════════ -->
+<div class="sticky" id="sticky">
+  <div class="sticky-info"><b>Sangamam · 13 Sept</b><i>Book your seat</i></div>
+  <button class="btn btn-gold btn-sticky" data-open-booking>Book Tickets</button>
+</div>
+
+<!-- ══════════════ BOOKING SHEET ══════════════ -->
+<div class="overlay" id="overlay" data-close-booking></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="grip" aria-hidden="true"></div>
+  <div class="sheet-head">
+    <div><p class="sheet-kick">Sangamam 2026</p><h2 id="sheet-title">Book your tickets</h2></div>
+    <button class="sheet-x" data-close-booking aria-label="Close booking panel">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div class="sheet-body">
+    <p class="sheet-note" id="sheet-note" hidden>Bookings open shortly — you can look around the form, but nothing is submitted or charged yet.</p>
+
+    <div class="field">
+      <div class="f-head"><label class="f-label">Number of tickets</label><span class="f-hint">Each one enters the draw</span></div>
+      <div class="stepper">
+        <button class="step" id="qty-minus" aria-label="Decrease tickets"><svg viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>
+        <div class="step-val"><span id="qty-value">1</span><i>tickets</i></div>
+        <button class="step" id="qty-plus" aria-label="Increase tickets"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="f-head"><label class="f-label">Your contribution</label><span class="f-hint">Per ticket</span></div>
+      <div class="chips">
+        <button class="chip" data-chip="sustainer" data-amt="500"><b>Sustainer</b><i>₹500</i></button>
+        <button class="chip" data-chip="backer" data-amt="1000"><b>Backer</b><i>₹1000</i></button>
+        <button class="chip" data-chip="custom"><b>Sponsor</b><i>You decide</i></button>
+      </div>
+      <div class="custom" id="custom-wrap" hidden>
+        <span class="rupee">₹</span>
+        <input type="text" inputmode="decimal" id="custom-amount" placeholder="Enter amount per ticket">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="f-head"><label class="f-label">Your details</label><span class="f-hint">So we can reach you</span></div>
+      <div class="inputs">
+        <div class="inp">
+          <label for="bk-name">Full name</label>
+          <input type="text" id="bk-name" autocomplete="name" placeholder="Your name" required>
+        </div>
+        <div class="inp">
+          <label for="bk-phone">Mobile number</label>
+          <div class="phone-wrap">
+            <span class="cc">+91</span>
+            <input type="tel" id="bk-phone" inputmode="numeric" autocomplete="tel-national" maxlength="10" placeholder="10-digit number" required>
+          </div>
+        </div>
+        <div class="inp">
+          <label for="bk-email">Email <span class="opt">(optional)</span></label>
+          <input type="email" id="bk-email" autocomplete="email" placeholder="you@example.com">
+        </div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="s-row"><span>Tickets</span><span id="sum-qty">1</span></div>
+      <div class="s-row"><span>Contribution</span><span id="sum-rate">—</span></div>
+      <div class="s-row s-total"><span>Total</span><span id="sum-total">—</span></div>
+    </div>
+
+    <p class="form-error" id="form-error" role="alert" hidden></p>
+
+    <button class="btn btn-gold btn-continue" id="btn-next" disabled>
+      <span id="next-label">Continue to payment</span>
+    </button>
+
+    <p class="sheet-disc" id="sheet-disc">Next you'll pay by UPI and upload the payment screenshot.</p>
+  </div>
+
+  <!-- ── STEP 2: pay & upload proof ── -->
+  <div class="sheet-pay" id="sheet-pay" hidden>
+    <button class="back-link" id="btn-back">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back
+    </button>
+
+    <div class="pay-amount">
+      <span class="pa-lbl">Amount to pay</span>
+      <span class="pa-val" id="pay-amount">—</span>
+      <span class="pa-sub" id="pay-breakdown">—</span>
+    </div>
+
+    <!-- phone: opens a UPI app directly with the amount filled in -->
+    <a class="btn btn-gold btn-upi" id="btn-upi" href="#">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Pay ₹<span id="upi-btn-amt">0</span> in UPI app
+    </a>
+
+    <!-- some phones and in-app browsers ignore the generic upi:// link,
+         so offer the individual apps as a direct fallback -->
+    <div class="upi-apps" id="upi-apps">
+      <p class="ua-label">Didn't open? Go straight to</p>
+      <div class="ua-row">
+        <a class="ua" id="ua-gpay" href="#">GPay</a>
+        <a class="ua" id="ua-phonepe" href="#">PhonePe</a>
+        <a class="ua" id="ua-paytm" href="#">Paytm</a>
+      </div>
+    </div>
+
+    <div class="or"><span>or scan</span></div>
+
+    <div class="qr-box">
+      <div class="qr" id="qr"></div>
+      <p class="qr-note">Scan with GPay, PhonePe, Paytm or any UPI app</p>
+      <div class="vpa-copy">
+        <span class="qr-vpa" id="qr-vpa">—</span>
+        <button class="copy-btn" id="copy-vpa" type="button">Copy</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="f-head"><label class="f-label">After paying</label><span class="f-hint">Both needed</span></div>
+      <div class="inputs">
+        <div class="inp">
+          <label for="bk-ref">UPI reference / UTR number</label>
+          <input type="text" id="bk-ref" inputmode="numeric" placeholder="12-digit number from your UPI app" required>
+          <p class="inp-help">In GPay/PhonePe open the payment and look for “UPI transaction ID”.</p>
+        </div>
+
+        <div class="inp">
+          <label for="bk-file">Payment screenshot</label>
+          <label class="drop" id="drop" for="bk-file">
+            <input type="file" id="bk-file" accept="image/png,image/jpeg,image/webp,application/pdf" hidden>
+            <span class="drop-inner" id="drop-inner">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5l5 5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <b>Tap to upload</b>
+              <i>PNG, JPG or PDF · max 5 MB</i>
+            </span>
+            <span class="drop-preview" id="drop-preview" hidden>
+              <img id="preview-img" alt="Your uploaded payment screenshot">
+              <span class="dp-meta"><b id="preview-name">file</b><i id="preview-size"></i></span>
+              <span class="dp-change">Change</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <p class="form-error" id="pay-error" role="alert" hidden></p>
+
+    <button class="btn btn-gold btn-continue" id="btn-submit" disabled>
+      <span id="submit-label">Submit booking</span>
+    </button>
+    <p class="sheet-disc">A volunteer will check your payment and confirm. Contact numbers are at the bottom of the page.</p>
+  </div>
+
+  <!-- ── STEP 3: submitted ── -->
+  <div class="sheet-done" id="sheet-done" hidden>
+    <div class="done-mark" aria-hidden="true">
+      <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="3"/><path d="M15 27l8 8 15-16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3>Booking received</h3>
+    <p class="done-sub">Thank you — we've got your details and your payment proof.</p>
+    <div class="done-card">
+      <div class="s-row"><span>Booking ID</span><span id="done-id">—</span></div>
+      <div class="s-row"><span>Tickets</span><span id="done-qty">—</span></div>
+      <div class="s-row s-total"><span>Paid</span><span id="done-total">—</span></div>
+    </div>
+    <p class="done-note">Please screenshot this booking ID. A volunteer will verify your payment — if anything looks off, we'll call you.</p>
+    <button class="btn btn-gold" data-close-booking style="width:100%;padding:16px">Done</button>
+  </div>
+</div>
+
+<script src="vendor/qrcode.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

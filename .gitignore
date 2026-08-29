@@ -1,0 +1,4 @@
+# nothing sensitive lives in this repo, but keep OS/editor junk out
+.DS_Store
+Thumbs.db
+*.log
