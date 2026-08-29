@@ -294,7 +294,7 @@
   // real design but takes nothing. Worded for a visitor, not a developer.
   if (!LIVE) {
     noteEl.hidden = false;
-    document.getElementById("next-label").textContent = "Booking opens soon";
+    document.getElementById("next-label").textContent = "Payment starting soon";
   }
 
   phoneEl.addEventListener("input", function () {
