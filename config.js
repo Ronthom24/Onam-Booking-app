@@ -8,6 +8,13 @@
 
 window.SANGAMAM_CONFIG = {
 
+  // ── Master switch ───────────────────────────────────────
+  // While false, the booking panel always shows "Bookings open soon"
+  // and nothing can be submitted — regardless of whether UPI_VPA or
+  // BACKEND_URL below happen to be filled in (they're kept filled in
+  // for our own testing). Flip to true only when ready to go live.
+  BOOKINGS_OPEN: false,
+
   // ── UPI collection account ──────────────────────────────
   // The VPA money is paid into, e.g. "santhomeyouth@okicici".
   // Use the parish / youth account, never a personal one.

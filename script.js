@@ -269,7 +269,7 @@
      statement afterwards. Nothing here can confirm money arrived. */
 
   var CFG  = window.SANGAMAM_CONFIG || {};
-  var LIVE = !!(CFG.UPI_VPA && CFG.BACKEND_URL);
+  var LIVE = !!(CFG.BOOKINGS_OPEN && CFG.UPI_VPA && CFG.BACKEND_URL);
 
   var stepForm = document.querySelector(".sheet-body");
   var stepPay  = document.getElementById("sheet-pay");
