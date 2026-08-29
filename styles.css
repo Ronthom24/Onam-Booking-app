@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   SANGAMAM 2026 — Onam celebration · Santhome Youth
+   SANGAMAM 2026 — Family get-together · Santhome Youth
    Design phase. No backend, no payment, no booking logic.
    ═══════════════════════════════════════════════════════════ */
 
@@ -8,7 +8,7 @@
      against Android Chrome's auto-dark-theme re-colouring the page. */
   color-scheme: light only;
 
-  /* Onam / Kerala palette */
+  /* Kerala palette */
   --cream:#fbf3e4;
   --cream-2:#f3e6cd;
   --cream-3:#e9d8b6;
@@ -186,7 +186,7 @@ a{color:inherit}
   line-height:.93;
   letter-spacing:-.025em;
   margin:0;
-  /* deep maroon on marigold — the classic Onam pairing */
+  /* deep maroon on marigold — a classic Kerala pairing */
   background:linear-gradient(172deg,#8f2a35 0%,var(--maroon) 42%,#5e1420 100%);
   -webkit-background-clip:text;background-clip:text;
   color:transparent;

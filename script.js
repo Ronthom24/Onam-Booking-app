@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   SANGAMAM 2026 — Onam celebration · Santhome Youth
+   SANGAMAM 2026 — Family get-together · Santhome Youth
    Design-phase scaffolding. No network calls, no persistence,
    no real booking, payment or capacity logic.
    ═══════════════════════════════════════════════════════════ */
