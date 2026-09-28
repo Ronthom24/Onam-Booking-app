@@ -1,5 +1,7 @@
 # Sangamam 2026 — Booking Page
 
+**Live:** [sangamam2k26.netlify.app](https://sangamam2k26.netlify.app/)
+
 A single-page site for **Sangamam 2026**, a family get-together organised by
 Santhome Youth at St. Thomas Orthodox Maha Edavaka, Bengaluru. It's an event
 landing page (schedule, photos, the Maveli/pookalam theming) with a UPI-based
