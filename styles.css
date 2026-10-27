@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    SANGAMAM 2026 — Family get-together · Santhome Youth
-   Design phase. No backend, no payment, no booking logic.
+   Styles for the landing page and the free booking sheet.
    ═══════════════════════════════════════════════════════════ */
 
 :root{
@@ -762,41 +762,6 @@ a{color:inherit}
   letter-spacing:.17em;text-transform:uppercase;color:var(--ink-2);
 }
 
-.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.chip{
-  padding:13px 8px;border-radius:var(--r-m);
-  background:#fff;border:1.5px solid var(--cream-3);
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-  transition:all .2s ease;
-}
-.chip b{font-family:var(--f-cond);font-weight:500;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink)}
-.chip i{font-style:normal;font-size:.76rem;color:var(--ink-2)}
-.chip.on{
-  border-color:var(--gold);
-  background:linear-gradient(165deg,#fff,var(--cream-2));
-  box-shadow:0 6px 18px rgba(201,150,47,.28);
-  transform:translateY(-2px);
-}
-.chip.on b{color:var(--maroon)}
-
-.custom{
-  margin-top:12px;display:flex;align-items:center;gap:2px;
-  background:#fff;border:1.5px solid var(--cream-3);
-  border-radius:var(--r-m);padding:0 14px;
-  transition:border-color .2s ease;
-}
-.custom:focus-within{border-color:var(--gold)}
-.rupee{font-family:var(--f-disp);font-weight:600;font-size:1.15rem;color:var(--ink-2)}
-.custom input{
-  flex:1;border:none;outline:none;background:none;
-  padding:14px 8px;font-size:1rem;font-family:var(--f-body);color:var(--ink);
-}
-
-.summary{
-  background:linear-gradient(165deg,#fff,var(--cream-2));
-  border:1px solid var(--cream-3);border-radius:var(--r-m);
-  padding:15px 17px;margin-bottom:20px;box-shadow:var(--sh);
-}
 .s-row{display:flex;justify-content:space-between;font-size:.9rem;color:var(--ink-2);padding:5px 0}
 .s-total{
   margin-top:7px;padding-top:12px;border-top:1px dashed var(--cream-3);
@@ -848,134 +813,6 @@ a{color:inherit}
   border-left:3px solid var(--maroon);
   color:var(--maroon);font-size:.85rem;line-height:1.5;
 }
-.pay-modes{
-  margin-top:11px;text-align:center;
-  font-family:var(--f-cond);font-weight:300;font-size:.63rem;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);opacity:.8;
-}
-
-/* ── Step 2: pay by UPI + upload proof ── */
-.sheet-pay{padding:8px 22px 26px;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.back-link{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:6px 0;margin-bottom:12px;
-  font-family:var(--f-cond);font-weight:400;font-size:.74rem;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);
-}
-.back-link svg{width:15px;height:15px}
-
-.pay-amount{
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-  padding:20px;margin-bottom:16px;border-radius:var(--r-m);
-  background:linear-gradient(165deg,#fff,var(--cream-2));
-  border:1px solid var(--cream-3);box-shadow:var(--sh);
-}
-.pa-lbl{
-  font-family:var(--f-cond);font-weight:300;font-size:.64rem;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);
-}
-.pa-val{
-  font-family:var(--f-disp);font-weight:700;font-size:2.5rem;
-  line-height:1.05;color:var(--green);
-}
-.pa-sub{font-size:.82rem;color:var(--ink-2)}
-
-.btn-upi{width:100%;padding:17px;font-size:.88rem;text-decoration:none}
-
-.or{
-  display:flex;align-items:center;gap:12px;
-  margin:18px 0 14px;color:var(--ink-2);
-}
-.or::before,.or::after{content:"";flex:1;height:1px;background:var(--cream-3)}
-.or span{
-  font-family:var(--f-cond);font-weight:300;font-size:.64rem;
-  letter-spacing:.2em;text-transform:uppercase;
-}
-
-.qr-box{
-  display:flex;flex-direction:column;align-items:center;
-  padding:20px;border-radius:var(--r-m);
-  background:#fff;border:1px solid var(--cream-3);
-  box-shadow:var(--sh);margin-bottom:24px;
-}
-.qr{
-  width:190px;height:190px;
-  padding:10px;border-radius:var(--r-s);
-  background:#fff;border:2px solid var(--gold);
-}
-.qr svg{width:100%;height:100%;display:block}
-.qr-note{margin-top:12px;font-size:.74rem;color:var(--ink-2);text-align:center}
-
-/* UPI id + copy — the fallback that always works */
-.vpa-copy{
-  display:flex;align-items:center;gap:8px;margin-top:12px;
-  padding:8px 8px 8px 14px;border-radius:999px;
-  background:var(--cream-2);border:1px solid var(--cream-3);
-  max-width:100%;
-}
-.qr-vpa{
-  font-family:var(--f-cond);font-weight:500;font-size:.86rem;
-  letter-spacing:.03em;color:var(--ink);
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;
-}
-.copy-btn{
-  flex:none;padding:7px 14px;border-radius:999px;
-  background:var(--green);color:#fff;
-  font-family:var(--f-cond);font-weight:500;font-size:.68rem;
-  letter-spacing:.12em;text-transform:uppercase;
-  transition:background .2s ease;
-}
-.copy-btn.copied{background:var(--gold);color:var(--green-deep)}
-
-/* per-app fallback links */
-.upi-apps{margin-top:12px;text-align:center}
-.ua-label{
-  font-size:.74rem;color:var(--ink-2);margin-bottom:8px;
-}
-.ua-row{display:flex;gap:8px;justify-content:center}
-.ua{
-  flex:1;max-width:120px;padding:10px 6px;border-radius:var(--r-s);
-  text-decoration:none;text-align:center;
-  background:#fff;border:1.5px solid var(--cream-3);color:var(--ink);
-  font-family:var(--f-cond);font-weight:500;font-size:.76rem;
-  letter-spacing:.06em;
-  transition:border-color .2s ease,transform .15s ease;
-}
-.ua:hover{border-color:var(--gold)}
-.ua:active{transform:scale(.96)}
-
-.inp-help{margin-top:6px;font-size:.73rem;color:var(--ink-2);line-height:1.5}
-
-/* upload well */
-.drop{
-  display:block;cursor:pointer;
-  border:2px dashed var(--cream-3);border-radius:var(--r-m);
-  background:#fff;transition:border-color .2s ease,background .2s ease;
-}
-.drop:hover{border-color:var(--gold);background:#fffdf8}
-.drop-inner{
-  display:flex;flex-direction:column;align-items:center;gap:5px;
-  padding:26px 16px;color:var(--ink-2);text-align:center;
-}
-.drop-inner svg{width:26px;height:26px;color:var(--gold);margin-bottom:2px}
-.drop-inner b{font-size:.92rem;color:var(--ink);font-weight:600}
-.drop-inner i{font-style:normal;font-size:.74rem}
-.drop-preview{
-  display:flex;align-items:center;gap:12px;padding:12px;
-}
-.drop-preview img{
-  width:56px;height:56px;object-fit:cover;flex:none;
-  border-radius:var(--r-s);border:1px solid var(--cream-3);
-}
-.dp-meta{display:flex;flex-direction:column;min-width:0;flex:1;line-height:1.35}
-.dp-meta b{font-size:.84rem;font-weight:600;color:var(--ink);
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.dp-meta i{font-style:normal;font-size:.74rem;color:var(--ink-2)}
-.dp-change{
-  flex:none;font-family:var(--f-cond);font-weight:500;font-size:.68rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);
-}
-
 /* ── Success state ── */
 .sheet-done{padding:14px 22px 30px;text-align:center;overflow-y:auto}
 .done-mark{

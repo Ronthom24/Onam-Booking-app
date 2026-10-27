@@ -221,7 +221,7 @@
     <p class="draw-kicker">Lucky draw</p>
     <h2 class="draw-title">Win a <span>gold coin</span></h2>
     <p class="draw-text">
-      Every ticket goes into the draw automatically, at no extra cost.
+      Every ticket goes into the draw automatically.
       We'll pick the winner live on stage during the program.
     </p>
     <p class="draw-fine">More tickets, more chances. You'll need to be there to claim it.</p>
@@ -271,12 +271,12 @@
   <div class="faq-list">
     <details class="fq reveal">
       <summary><span>How do I book?</span><i class="chev"></i></summary>
-      <div class="fq-body"><p>Tap <b>Book Tickets</b>, pick your ticket count and contribution, and enter your name and number. Pay by UPI — scan the QR or open GPay, PhonePe or any UPI app — then send us the reference number and a screenshot. You'll get a booking ID right away.</p></div>
+      <div class="fq-body"><p>Tap <b>Book Tickets</b>, pick your ticket count, and enter your name and number. You'll get a booking ID right away.</p></div>
     </details>
 
     <details class="fq reveal">
       <summary><span>Can I book for my whole family?</span><i class="chev"></i></summary>
-      <div class="fq-body"><p>Yes — there's no cap. Use the counter in the booking panel to take as many tickets as you need in one booking, covered by a single payment and booking ID.</p></div>
+      <div class="fq-body"><p>Yes — there's no cap. Use the counter in the booking panel to take as many tickets as you need in one booking, under a single booking ID.</p></div>
     </details>
 
     <details class="fq reveal">
@@ -290,11 +290,6 @@
     </details>
 
     <details class="fq reveal">
-      <summary><span>How much should I contribute?</span><i class="chev"></i></summary>
-      <div class="fq-body"><p>There's no fixed amount. Whatever you give goes towards the sadya and the day's costs — and if you can give more, it helps cover someone who can't. Nobody is turned away for it.</p></div>
-    </details>
-
-    <details class="fq reveal">
       <summary><span>How does the lucky draw work?</span><i class="chev"></i></summary>
       <div class="fq-body"><p>Every ticket is an automatic entry — nothing extra to buy or fill in. Four tickets means four chances. We'll draw the winner live on stage, and you'll need to be there to claim the gold coin.</p></div>
     </details>
@@ -305,8 +300,8 @@
     </details>
 
     <details class="fq reveal">
-      <summary><span>Is the amount refundable?</span><i class="chev"></i></summary>
-      <div class="fq-body"><p>Contributions go towards food ordered in advance, so we generally can't refund them. If your plans change, let us know as early as you can — call one of the numbers below and we'll do what we can.</p></div>
+      <summary><span>What if my plans change?</span><i class="chev"></i></summary>
+      <div class="fq-body"><p>Food is ordered in advance, so let us know as early as you can — call one of the numbers in the Contact section below and we'll update your booking.</p></div>
     </details>
   </div>
 </section>
@@ -398,7 +393,7 @@
   </div>
 
   <div class="sheet-body">
-    <p class="sheet-note" id="sheet-note" hidden>Bookings open soon — you can look around the form, but nothing is submitted or charged yet.</p>
+    <p class="sheet-note" id="sheet-note" hidden>Bookings open soon — you can look around the form, but nothing is submitted yet.</p>
 
     <div class="field">
       <div class="f-head"><label class="f-label">Number of tickets</label><span class="f-hint">Each one enters the draw</span></div>
@@ -406,19 +401,6 @@
         <button class="step" id="qty-minus" aria-label="Decrease tickets"><svg viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>
         <div class="step-val"><span id="qty-value">1</span><i>tickets</i></div>
         <button class="step" id="qty-plus" aria-label="Increase tickets"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>
-      </div>
-    </div>
-
-    <div class="field">
-      <div class="f-head"><label class="f-label">Your contribution</label><span class="f-hint">Per ticket</span></div>
-      <div class="chips">
-        <button class="chip" data-chip="sustainer" data-amt="500"><b>Sustainer</b><i>₹500</i></button>
-        <button class="chip" data-chip="backer" data-amt="1000"><b>Backer</b><i>₹1000</i></button>
-        <button class="chip" data-chip="custom"><b>Sponsor</b><i>You decide</i></button>
-      </div>
-      <div class="custom" id="custom-wrap" hidden>
-        <span class="rupee">₹</span>
-        <input type="text" inputmode="decimal" id="custom-amount" placeholder="Enter amount per ticket">
       </div>
     </div>
 
@@ -443,116 +425,31 @@
       </div>
     </div>
 
-    <div class="summary">
-      <div class="s-row"><span>Tickets</span><span id="sum-qty">1</span></div>
-      <div class="s-row"><span>Contribution</span><span id="sum-rate">—</span></div>
-      <div class="s-row s-total"><span>Total</span><span id="sum-total">—</span></div>
-    </div>
-
     <p class="form-error" id="form-error" role="alert" hidden></p>
 
-    <button class="btn btn-gold btn-continue" id="btn-next" disabled>
-      <span id="next-label">Continue to payment</span>
-    </button>
-
-    <p class="sheet-disc" id="sheet-disc">Next you'll pay by UPI and upload the payment screenshot.</p>
-  </div>
-
-  <!-- ── STEP 2: pay & upload proof ── -->
-  <div class="sheet-pay" id="sheet-pay" hidden>
-    <button class="back-link" id="btn-back">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Back
-    </button>
-
-    <div class="pay-amount">
-      <span class="pa-lbl">Amount to pay</span>
-      <span class="pa-val" id="pay-amount">—</span>
-      <span class="pa-sub" id="pay-breakdown">—</span>
-    </div>
-
-    <!-- phone: opens a UPI app directly with the amount filled in -->
-    <a class="btn btn-gold btn-upi" id="btn-upi" href="#">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Pay ₹<span id="upi-btn-amt">0</span> in UPI app
-    </a>
-
-    <!-- some phones and in-app browsers ignore the generic upi:// link,
-         so offer the individual apps as a direct fallback -->
-    <div class="upi-apps" id="upi-apps">
-      <p class="ua-label">Didn't open? Go straight to</p>
-      <div class="ua-row">
-        <a class="ua" id="ua-gpay" href="#">GPay</a>
-        <a class="ua" id="ua-phonepe" href="#">PhonePe</a>
-        <a class="ua" id="ua-paytm" href="#">Paytm</a>
-      </div>
-    </div>
-
-    <div class="or"><span>or scan</span></div>
-
-    <div class="qr-box">
-      <div class="qr" id="qr"></div>
-      <p class="qr-note">Scan with GPay, PhonePe, Paytm or any UPI app</p>
-      <div class="vpa-copy">
-        <span class="qr-vpa" id="qr-vpa">—</span>
-        <button class="copy-btn" id="copy-vpa" type="button">Copy</button>
-      </div>
-    </div>
-
-    <div class="field">
-      <div class="f-head"><label class="f-label">After paying</label><span class="f-hint">Both needed</span></div>
-      <div class="inputs">
-        <div class="inp">
-          <label for="bk-ref">UPI reference / UTR number</label>
-          <input type="text" id="bk-ref" inputmode="numeric" placeholder="12-digit number from your UPI app" required>
-          <p class="inp-help">In GPay/PhonePe open the payment and look for “UPI transaction ID”.</p>
-        </div>
-
-        <div class="inp">
-          <label for="bk-file">Payment screenshot</label>
-          <label class="drop" id="drop" for="bk-file">
-            <input type="file" id="bk-file" accept="image/png,image/jpeg,image/webp,application/pdf" hidden>
-            <span class="drop-inner" id="drop-inner">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5l5 5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <b>Tap to upload</b>
-              <i>PNG, JPG or PDF · max 5 MB</i>
-            </span>
-            <span class="drop-preview" id="drop-preview" hidden>
-              <img id="preview-img" alt="Your uploaded payment screenshot">
-              <span class="dp-meta"><b id="preview-name">file</b><i id="preview-size"></i></span>
-              <span class="dp-change">Change</span>
-            </span>
-          </label>
-        </div>
-      </div>
-    </div>
-
-    <p class="form-error" id="pay-error" role="alert" hidden></p>
-
     <button class="btn btn-gold btn-continue" id="btn-submit" disabled>
-      <span id="submit-label">Submit booking</span>
+      <span id="submit-label">Confirm booking</span>
     </button>
-    <p class="sheet-disc">A volunteer will check your payment and confirm. Contact details are further down the page.</p>
+
+    <p class="sheet-disc">Contact details are further down the page if you need to change anything.</p>
   </div>
 
-  <!-- ── STEP 3: submitted ── -->
+  <!-- ── Submitted ── -->
   <div class="sheet-done" id="sheet-done" hidden>
     <div class="done-mark" aria-hidden="true">
       <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="3"/><path d="M15 27l8 8 15-16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <h3>Booking received</h3>
-    <p class="done-sub">Thank you — we've got your details and your payment proof.</p>
+    <p class="done-sub">Thank you — we've got your details.</p>
     <div class="done-card">
       <div class="s-row"><span>Booking ID</span><span id="done-id">—</span></div>
-      <div class="s-row"><span>Tickets</span><span id="done-qty">—</span></div>
-      <div class="s-row s-total"><span>Paid</span><span id="done-total">—</span></div>
+      <div class="s-row s-total"><span>Tickets</span><span id="done-qty">—</span></div>
     </div>
-    <p class="done-note">Please screenshot this booking ID. A volunteer will verify your payment — if anything looks off, we'll call you.</p>
+    <p class="done-note">Please screenshot this booking ID. At the desk, just give your name or mobile number and we'll find you.</p>
     <button class="btn btn-gold" data-close-booking style="width:100%;padding:16px">Done</button>
   </div>
 </div>
 
-<script src="vendor/qrcode.js"></script>
 <script src="config.js"></script>
 <script src="script.js"></script>
 </body>

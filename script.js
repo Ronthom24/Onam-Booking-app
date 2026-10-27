@@ -1,7 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    SANGAMAM 2026 — Family get-together · Santhome Youth
-   Design-phase scaffolding. No network calls, no persistence,
-   no real booking, payment or capacity logic.
+   Page animation plus the free booking form (see section 9).
    ═══════════════════════════════════════════════════════════ */
 (function () {
   "use strict";
@@ -206,29 +205,18 @@
     if (e.key === "Escape" && sheet.classList.contains("open")) closeSheet();
   });
 
-  /* ─────────────── 8. Stepper · chips · summary (display only) ─────────────── */
+  /* ─────────────── 8. Ticket stepper ─────────────── */
   // No venue cap on the event; MAX is only a sane bound for the stepper UI.
-  var qty = 1, MIN = 1, MAX = 30, rate = null;
+  var qty = 1, MIN = 1, MAX = 30;
 
   var qtyEl = document.getElementById("qty-value");
   var minus = document.getElementById("qty-minus");
   var plus = document.getElementById("qty-plus");
-  var sumQty = document.getElementById("sum-qty");
-  var sumRate = document.getElementById("sum-rate");
-  var sumTotal = document.getElementById("sum-total");
-  var chips = document.querySelectorAll(".chip");
-  var customWrap = document.getElementById("custom-wrap");
-  var customInput = document.getElementById("custom-amount");
-
-  function money(n) { return "₹" + Number(n).toLocaleString("en-IN"); }
 
   function render() {
     qtyEl.textContent = qty;
-    sumQty.textContent = qty;
     minus.disabled = qty <= MIN;
     plus.disabled = qty >= MAX;
-    sumRate.textContent = rate ? money(rate) + " / ticket" : "—";
-    sumTotal.textContent = rate ? money(rate * qty) : "—";
     if (!reduced) {
       qtyEl.animate([{ transform: "scale(1.22)" }, { transform: "none" }],
                     { duration: 220, easing: "cubic-bezier(.22,1,.36,1)" });
@@ -238,72 +226,36 @@
   minus.addEventListener("click", function () { if (qty > MIN) { qty--; render(); } });
   plus.addEventListener("click", function () { if (qty < MAX) { qty++; render(); } });
 
-  chips.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      chips.forEach(function (c) { c.classList.remove("on"); });
-      chip.classList.add("on");
-      if (chip.dataset.chip === "custom") {
-        customWrap.hidden = false;
-        customInput.focus();
-        rate = parseFloat(customInput.value) || null;
-      } else {
-        customWrap.hidden = true;
-        rate = parseFloat(chip.dataset.amt);
-      }
-      render();
-    });
-  });
-
-  customInput.addEventListener("input", function () {
-    customInput.value = customInput.value.replace(/[^\d.]/g, "");
-    rate = parseFloat(customInput.value) || null;
-    render();
-  });
-
   render();
 
-  /* ─────────────── 9. Booking: UPI pay + proof upload ───────────────
-     There is no payment gateway. The payer sends money by UPI, then
-     gives us the reference number and a screenshot. This records a
-     CLAIM of payment — a volunteer verifies it against the bank
-     statement afterwards. Nothing here can confirm money arrived. */
+  /* ─────────────── 9. Booking: details → backend ───────────────
+     Free registration. The visitor gives a name and mobile number,
+     the backend records a row and returns a booking ID. */
 
   var CFG  = window.SANGAMAM_CONFIG || {};
-  var LIVE = !!(CFG.BOOKINGS_OPEN && CFG.UPI_VPA && CFG.BACKEND_URL);
+  var LIVE = !!(CFG.BOOKINGS_OPEN && CFG.BACKEND_URL);
 
   var stepForm = document.querySelector(".sheet-body");
-  var stepPay  = document.getElementById("sheet-pay");
   var stepDone = document.getElementById("sheet-done");
 
   var nameEl  = document.getElementById("bk-name");
   var phoneEl = document.getElementById("bk-phone");
   var emailEl = document.getElementById("bk-email");
-  var refEl   = document.getElementById("bk-ref");
-  var fileEl  = document.getElementById("bk-file");
 
-  var nextBtn   = document.getElementById("btn-next");
-  var backBtn   = document.getElementById("btn-back");
   var submitBtn = document.getElementById("btn-submit");
   var errEl     = document.getElementById("form-error");
-  var payErrEl  = document.getElementById("pay-error");
   var noteEl    = document.getElementById("sheet-note");
 
-  var upload = null; // {name,type,size,data}
-
-  // Until config.js has the UPI id and backend URL, the panel shows the
-  // real design but takes nothing. Worded for a visitor, not a developer.
+  // Until bookings are switched on, the panel shows the real design but
+  // takes nothing. Worded for a visitor, not a developer.
   if (!LIVE) {
     noteEl.hidden = false;
-    document.getElementById("next-label").textContent = "Bookings open soon";
+    document.getElementById("submit-label").textContent = "Bookings open soon";
   }
 
   phoneEl.addEventListener("input", function () {
     phoneEl.value = phoneEl.value.replace(/\D/g, "").slice(0, 10);
     validateForm();
-  });
-  refEl.addEventListener("input", function () {
-    refEl.value = refEl.value.replace(/[^\w]/g, "").slice(0, 24);
-    validatePay();
   });
   [nameEl, emailEl].forEach(function (el) { el.addEventListener("input", validateForm); });
 
@@ -313,161 +265,28 @@
     var ok = LIVE &&
              nameEl.value.trim().length >= 2 &&
              phoneEl.value.length === 10 &&
-             emailOk(emailEl.value.trim()) &&
-             rate > 0; // no fixed minimum — any positive contribution is accepted
-    nextBtn.disabled = !ok;
-    return ok;
-  }
-  function validatePay() {
-    var ok = refEl.value.trim().length >= 6 && !!upload;
+             emailOk(emailEl.value.trim());
     submitBtn.disabled = !ok;
     return ok;
   }
 
-  // keep the Continue button in step with tickets/contribution changes
+  // keep the submit button in step with ticket-count changes
   var _render = render;
   render = function () { _render(); validateForm(); };
   render();
 
-  /* ── Step 1 → 2 ── */
-  nextBtn.addEventListener("click", function () {
-    if (!validateForm()) return;
-    errEl.hidden = true;
-    buildPayStep();
-    stepForm.hidden = true;
-    stepPay.hidden = false;
-    stepPay.scrollTop = 0;
-  });
-
-  backBtn.addEventListener("click", function () {
-    stepPay.hidden = true;
-    stepForm.hidden = false;
-  });
-
-  function buildPayStep() {
-    var total = qty * rate;
-    document.getElementById("pay-amount").textContent = money(total);
-    document.getElementById("pay-breakdown").textContent =
-      qty + " ticket" + (qty > 1 ? "s" : "") + " × " + money(rate);
-    document.getElementById("qr-vpa").textContent = CFG.UPI_VPA;
-
-    // UPI intent string — am= fixes the amount so nobody can mistype it
-    var params =
-      "pa=" + encodeURIComponent(CFG.UPI_VPA) +
-      "&pn=" + encodeURIComponent(CFG.UPI_PAYEE_NAME || "Santhome Youth") +
-      "&am=" + total.toFixed(2) +
-      "&cu=INR" +
-      "&tn=" + encodeURIComponent((CFG.EVENT_NAME || "Sangamam") + " " + qty + " ticket" + (qty > 1 ? "s" : ""));
-
-    var upi = "upi://pay?" + params;
-    document.getElementById("btn-upi").setAttribute("href", upi);
-    document.getElementById("upi-btn-amt").textContent = total.toLocaleString("en-IN");
-
-    // App-specific schemes, for phones and in-app browsers that ignore upi://
-    document.getElementById("ua-gpay").setAttribute("href", "tez://upi/pay?" + params);
-    document.getElementById("ua-phonepe").setAttribute("href", "phonepe://pay?" + params);
-    document.getElementById("ua-paytm").setAttribute("href", "paytmmp://pay?" + params);
-
-    // On desktop no UPI app exists — lead with the QR instead of a dead button
-    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    document.getElementById("btn-upi").hidden = !isMobile;
-    document.getElementById("upi-apps").hidden = !isMobile;
-    document.querySelector(".or").hidden = !isMobile;
-
-    var box = document.getElementById("qr");
-    box.innerHTML = "";
-    try {
-      var q = qrcode(0, "M");
-      q.addData(upi);
-      q.make();
-      box.innerHTML = q.createSvgTag({ cellSize: 5, margin: 0, scalable: true });
-    } catch (e) {
-      box.textContent = "Could not draw the QR — use the UPI id above.";
-    }
-  }
-
-  /* ── Copy the UPI id — the universal fallback when no deep link fires
-       (desktop, iOS, or an in-app browser like Instagram's) ── */
-  var copyBtn = document.getElementById("copy-vpa");
-  copyBtn.addEventListener("click", function () {
-    var vpa = CFG.UPI_VPA || "";
-    function done() {
-      copyBtn.textContent = "Copied";
-      copyBtn.classList.add("copied");
-      setTimeout(function () {
-        copyBtn.textContent = "Copy";
-        copyBtn.classList.remove("copied");
-      }, 1800);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(vpa).then(done, fallbackCopy);
-    } else {
-      fallbackCopy();
-    }
-    function fallbackCopy() {
-      var ta = document.createElement("textarea");
-      ta.value = vpa;
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand("copy"); done(); } catch (e) { /* ignore */ }
-      document.body.removeChild(ta);
-    }
-  });
-
-  /* ── Screenshot picker ── */
-  fileEl.addEventListener("change", function () {
-    var f = fileEl.files && fileEl.files[0];
-    if (!f) return;
-
-    var maxMb = CFG.MAX_UPLOAD_MB || 5;
-    if (f.size > maxMb * 1024 * 1024) {
-      showPayError("That file is too large (max " + maxMb + " MB).");
-      fileEl.value = ""; return;
-    }
-
-    var reader = new FileReader();
-    reader.onload = function () {
-      upload = {
-        name: f.name, type: f.type, size: f.size,
-        data: String(reader.result).split(",")[1] // strip the data: prefix
-      };
-      showPreview(f, reader.result);
-      showPayError("");
-      validatePay();
-    };
-    reader.readAsDataURL(f);
-  });
-
-  function showPreview(f, dataUrl) {
-    document.getElementById("drop-inner").hidden = true;
-    var wrap = document.getElementById("drop-preview");
-    var img = document.getElementById("preview-img");
-    if (f.type === "application/pdf") {
-      img.removeAttribute("src");
-      img.style.display = "none";
-    } else {
-      img.src = dataUrl;
-      img.style.display = "";
-    }
-    document.getElementById("preview-name").textContent = f.name;
-    document.getElementById("preview-size").textContent = (f.size / 1024).toFixed(0) + " KB";
-    wrap.hidden = false;
-  }
-
-  function showPayError(msg) {
-    payErrEl.textContent = msg;
-    payErrEl.hidden = !msg;
+  function showError(msg) {
+    errEl.textContent = msg;
+    errEl.hidden = !msg;
   }
 
   /* ── Submit ── */
   submitBtn.addEventListener("click", function () {
-    if (!validatePay()) return;
-    showPayError("");
+    if (!validateForm()) return;
+    showError("");
     submitBtn.disabled = true;
     submitBtn.classList.add("is-busy");
-    document.getElementById("submit-label").textContent = "Uploading…";
+    document.getElementById("submit-label").textContent = "Saving…";
 
     fetch(CFG.BACKEND_URL, {
       method: "POST",
@@ -479,36 +298,31 @@
         name: nameEl.value.trim(),
         phone: phoneEl.value,
         email: emailEl.value.trim(),
-        tickets: qty,
-        perTicket: rate,
-        ref: refEl.value.trim(),
-        file: upload
+        tickets: qty
       })
     })
       .then(function (r) { return r.json(); })
       .then(function (res) {
         resetSubmit();
-        if (!res.ok) return showPayError(res.error || "Could not save your booking.");
+        if (!res.ok) return showError(res.error || "Could not save your booking.");
         showDone(res.bookingId);
       })
       .catch(function () {
         resetSubmit();
-        showPayError("Network problem — your payment is safe. Please try submitting again.");
+        showError("Network problem — please try submitting again.");
       });
   });
 
   function resetSubmit() {
     submitBtn.classList.remove("is-busy");
-    document.getElementById("submit-label").textContent = "Submit booking";
-    validatePay();
+    document.getElementById("submit-label").textContent = "Confirm booking";
+    validateForm();
   }
 
   function showDone(bookingId) {
     document.getElementById("done-id").textContent = bookingId;
     document.getElementById("done-qty").textContent = qty;
-    document.getElementById("done-total").textContent = money(qty * rate);
-    stepPay.hidden = true;
+    stepForm.hidden = true;
     stepDone.hidden = false;
   }
 })();
-
